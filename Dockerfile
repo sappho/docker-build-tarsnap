@@ -6,8 +6,7 @@ ARG hash
 ARG tarball
 
 RUN apt-get -qq update && \
-    apt-get -qq -y install curl gcc libc6-dev make libssl-dev zlib1g-dev e2fslibs-dev gnupg2 && \
-    apt-get clean
+    apt-get -qq -y install curl gcc libc6-dev make libssl-dev zlib1g-dev e2fslibs-dev gnupg2
 
 ADD tarsnap-signing-key-2016.asc /opt/
 
@@ -18,13 +17,11 @@ RUN curl --fail --silent --location --retry 3 $hash > /opt/tarsnap.asc && \
     gpg --decrypt /opt/tarsnap.asc && \
     shasum -a 256 /opt/tarsnap.tgz && \
     mkdir /opt/tarsnap && \
-    cat /opt/tarsnap.tgz | tar -xz -C /opt/tarsnap --strip-components=1
-
-RUN cd /opt/tarsnap && \
+    cat /opt/tarsnap.tgz | tar -xz -C /opt/tarsnap --strip-components=1 && \
+    cd /opt/tarsnap && \
     ./configure && \
     make all && \
-    make install
-
-RUN rm -fr /opt/* && \
-    apt-get -y  --auto-remove remove curl gcc libc6-dev make libssl-dev zlib1g-dev e2fslibs-dev gnupg2 && \
+    make install && \
+    rm -fr /opt/* && \
+    apt-get -qq -y --auto-remove remove curl gcc libc6-dev make libssl-dev zlib1g-dev e2fslibs-dev gnupg2 && \
     apt-get clean
