@@ -2,8 +2,6 @@ FROM ubuntu:trusty
 
 MAINTAINER Andrew Heald <andrew@heald.uk>
 
-ENTRYPOINT tarsnap
-
 ARG hash
 ARG tarball
 ARG dependencies='curl gcc libc6-dev make libssl-dev zlib1g-dev e2fslibs-dev gnupg2'
