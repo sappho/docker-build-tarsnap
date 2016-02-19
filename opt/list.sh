@@ -1,3 +1,3 @@
 #!/bin/bash
 echo Listing Tarsnap images ...
-tarsnap --list-archives || tarsnap --fsck && tarsnap --list-archives
+tarsnap --list-archives
