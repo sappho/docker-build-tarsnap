@@ -31,3 +31,5 @@ RUN curl --fail --silent --location --retry 3 $hash > /opt/tarsnap.asc && \
     rm -fr /opt/* && \
     apt-get -qq -y --auto-remove purge $dependencies && \
     apt-get clean
+
+RUN mv /usr/local/etc/tarsnap.conf.sample /usr/local/etc/tarsnap.conf
