@@ -1,0 +1,3 @@
+#!/bin/bash
+echo Listing Tarsnap images ...
+tarsnap --list-archives
