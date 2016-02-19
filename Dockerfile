@@ -26,5 +26,5 @@ RUN cd /opt/tarsnap && \
     make install
 
 RUN rm -fr /opt/* \
-    apt-get -qq -y purge curl gcc libc6-dev make libssl-dev zlib1g-dev e2fslibs-dev gnupg2
+    apt-get -y purge curl gcc libc6-dev make libssl-dev zlib1g-dev e2fslibs-dev gnupg2
     apt-get clean
