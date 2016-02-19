@@ -20,8 +20,8 @@ RUN curl --fail --silent --location --retry 3 $hash > /opt/tarsnap.asc && \
     expected=`gpg --decrypt /opt/tarsnap.asc | awk '{print $4}'` && \
     actual=`shasum -a 256 /opt/tarsnap.tgz | awk '{print $1}'` && \
     echo '=====================================' && \
-    echo 'Expected hash = $expected' && \
-    echo 'Tarball hash  = $actual' && \
+    echo 'Expected hash = ${expected}' && \
+    echo 'Tarball hash  = ${actual}' && \
     echo '=====================================' && \
     if [ $actual != $expected ]; then echo 'Hash mismatch!'; exit 1; fi && \
     mkdir /opt/tarsnap && \
