@@ -2,11 +2,14 @@ FROM ubuntu:trusty
 
 MAINTAINER Andrew Heald <andrew@heald.uk>
 
+ENTRYPOINT tarsnap
+
 ARG hash
 ARG tarball
+ARG dependencies=curl gcc libc6-dev make libssl-dev zlib1g-dev e2fslibs-dev gnupg2
 
 RUN apt-get -qq update && \
-    apt-get -qq -y install curl gcc libc6-dev make libssl-dev zlib1g-dev e2fslibs-dev gnupg2
+    apt-get -qq -y install $dependencies
 
 ADD tarsnap-signing-key-2016.asc /opt/
 
@@ -16,6 +19,10 @@ RUN curl --fail --silent --location --retry 3 $hash > /opt/tarsnap.asc && \
     curl --fail --silent --location --retry 3 $tarball > /opt/tarsnap.tgz && \
     expected=`gpg --decrypt /opt/tarsnap.asc | awk '{print $4}'` && \
     actual=`shasum -a 256 /opt/tarsnap.tgz | awk '{print $1}'` && \
+    echo '=====================================' && \
+    echo 'Expected hash = $expected' && \
+    echo 'Tarball hash  = $actual' && \
+    echo '=====================================' && \
     if [ $actual != $expected ]; then echo 'Hash mismatch!'; exit 1; fi && \
     mkdir /opt/tarsnap && \
     cat /opt/tarsnap.tgz | tar -xz -C /opt/tarsnap --strip-components=1 && \
@@ -24,5 +31,5 @@ RUN curl --fail --silent --location --retry 3 $hash > /opt/tarsnap.asc && \
     make all && \
     make install && \
     rm -fr /opt/* && \
-    apt-get -qq -y --auto-remove remove curl gcc libc6-dev make libssl-dev zlib1g-dev e2fslibs-dev gnupg2 && \
+    apt-get -qq -y --auto-remove remove $dependencies && \
     apt-get clean
