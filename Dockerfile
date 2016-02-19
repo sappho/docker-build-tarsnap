@@ -29,6 +29,7 @@ RUN curl --fail --silent --location --retry 3 $hash > /opt/tarsnap.asc && \
     make all && \
     make install && \
     rm -fr /opt/* && \
+    rm -fr /root/.gnupg && \
     apt-get -qq -y --auto-remove purge $dependencies && \
     apt-get clean
 
