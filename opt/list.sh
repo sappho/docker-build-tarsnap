@@ -1,5 +1,3 @@
 #!/bin/bash
-echo Reconstructing cache ...
-tarsnap --fsck
 echo Listing Tarsnap images ...
-tarsnap --list-archives
+tarsnap --list-archives || tarsnap --fsck && tarsnap --list-archives
