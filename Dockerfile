@@ -18,7 +18,7 @@ RUN curl --fail --silent --location --retry 3 $hash > /opt/tarsnap.asc && \
     gpg --decrypt /opt/tarsnap.asc && \
     shasum -a 256 /opt/tarsnap.tgz && \
     mkdir /opt/tarsnap && \
-    tar -xz -C /opt/tarsnap --strip-components=1 /opt/tarsnap.tgz
+    cat /opt/tarsnap.tgz | tar -xz -C /opt/tarsnap --strip-components=1
 
 RUN cd /opt/tarsnap && \
     ./configure && \
