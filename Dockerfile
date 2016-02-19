@@ -14,8 +14,9 @@ RUN gpg --import /opt/tarsnap-signing-key-2016.asc
 
 RUN curl --fail --silent --location --retry 3 $hash > /opt/tarsnap.asc && \
     curl --fail --silent --location --retry 3 $tarball > /opt/tarsnap.tgz && \
-    gpg --decrypt /opt/tarsnap.asc && \
-    shasum -a 256 /opt/tarsnap.tgz && \
+    expected=`gpg --decrypt /opt/tarsnap.asc | awk '{print $4}'` && \
+    actual=`shasum -a 256 /opt/tarsnap.tgz | awk '{print $1}'` && \
+    if [ $actual != $expected ]; then echo 'Hash mismatch!'; exit 1; fi && \
     mkdir /opt/tarsnap && \
     cat /opt/tarsnap.tgz | tar -xz -C /opt/tarsnap --strip-components=1 && \
     cd /opt/tarsnap && \
