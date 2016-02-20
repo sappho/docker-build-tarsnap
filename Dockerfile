@@ -35,4 +35,6 @@ RUN curl --fail --silent --location --retry 3 $hash > /opt/tarsnap.asc && \
 
 RUN mv -v /usr/local/etc/tarsnap.conf.sample /usr/local/etc/tarsnap.conf
 
+VOLUME /usr/local/tarsnap-cache
+
 ADD /opt/* /opt/

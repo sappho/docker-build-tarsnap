@@ -1,6 +1,6 @@
 #!/bin/bash
-echo Tarsnap Images ...
-tarsnap --list-archives | sort
+echo Fixing Tarsnap cache with prune ...
+tarsnap --fsck-prune
 
 # Write out cache size
 echo Cache size:
