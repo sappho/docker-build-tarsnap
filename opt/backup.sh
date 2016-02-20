@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 echo Tarsnap Backup ...
 echo Paths: $@
 image=$IMAGE_PREFIX-`date +"%Y-%m-%d-%H-%M-%S"`

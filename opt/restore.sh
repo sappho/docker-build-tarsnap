@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 echo Tarsnap Restore ...
 image=`tarsnap --list-archives | sort | tail -n1`
 echo Image: $image
