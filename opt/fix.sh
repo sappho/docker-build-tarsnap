@@ -1,7 +1,5 @@
 #!/bin/bash
-echo Fixing Tarsnap cache with prune ...
-tarsnap --fsck-prune
-
-# Write out cache size
+echo Fix Tarsnap Cache ...
+tarsnap --fsck
 echo Cache size:
 du -sh /usr/local/tarsnap-cache
