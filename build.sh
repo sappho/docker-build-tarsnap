@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 version=1.0.36.1
 majorVersion=1.0
@@ -14,7 +15,4 @@ docker build \
   -t dok.re/sappho/tarsnap \
   $directory
 
-docker push dok.re/sappho/tarsnap:$version
-docker push dok.re/sappho/tarsnap:$majorVersion
-docker push dok.re/sappho/tarsnap:1
 docker push dok.re/sappho/tarsnap
