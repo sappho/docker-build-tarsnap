@@ -12,7 +12,7 @@ At the Bash shell prompt type the command:
 
     tarsnap-keygen --keyfile /root/tarsnap.key --user me@example.com --machine mybox
 
-Replace the <code>user</code> parameter with the email address you use to login at [tarsnap.com](https://www.tarsnap.com/account.html) and <code>machine</code> with something personal to you and note that it does not have to be the hostname of a machine - it can be any meaningful identifier, and it will show up under _Recent activity (one machine)_ on your Tarsnap account. After running this command type <code>exit</code> to exit the Bash shell. Then run something like this command:
+Replace the <code>user</code> parameter with the email address you use to login to your [Tarsnap account](https://www.tarsnap.com/account.html) and <code>machine</code> with something personal to you, and note that it does not have to be the hostname of a machine - it can be any meaningful identifier, and it will show up under _Recent activity (one machine)_ on your Tarsnap account. After running this command type <code>exit</code> to exit the Bash shell. Then run something like this command:
 
     docker cp tarsnapgenkey:/root/tarsnap.key /path/to/your/private/docker/project/
 
