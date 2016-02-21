@@ -6,6 +6,8 @@ majorVersion=1.0
 
 directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+docker pull ubuntu:trusty
+
 docker build \
   --build-arg hash=https://www.tarsnap.com/download/tarsnap-sigs-$version.asc \
   --build-arg tarball=https://www.tarsnap.com/download/tarsnap-autoconf-$version.tgz \
