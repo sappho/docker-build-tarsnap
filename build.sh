@@ -13,6 +13,11 @@ docker build \
   -t dok.re/sappho/tarsnap:$majorVersion \
   -t dok.re/sappho/tarsnap:1 \
   -t dok.re/sappho/tarsnap \
+  -t sappho/tarsnap:$version \
+  -t sappho/tarsnap:$majorVersion \
+  -t sappho/tarsnap:1 \
+  -t sappho/tarsnap \
   $directory
 
 docker push dok.re/sappho/tarsnap
+docker push sappho/tarsnap
