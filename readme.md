@@ -78,3 +78,9 @@ To restore the _last_ backup you made, use a command like this:
     docker run -ti --rm=true \
         --volumes-from tarsnap_cache --volumes-from other_container \
         myname/tarsnap-private /opt/restore.sh
+
+To restore from a specific backup, use a command like this:
+
+    docker run -ti --rm=true \
+        --volumes-from tarsnap_cache --volumes-from other_container \
+        myname/tarsnap-private /opt/restore.sh any-label-2016-02-21-13-41-54
