@@ -16,11 +16,13 @@ This public Tarsnap image requires a private key to securely communicate with [t
 
 At the Bash shell prompt type the command:
 
-    tarsnap-keygen --keyfile /root/tarsnap.key --user me@example.com --machine mybox
+    tarsnap-keygen --keyfile /root/tarsnap.key \
+        --user me@example.com --machine mybox
 
 Replace the <code>user</code> parameter with the email address you use to login to your [Tarsnap account](https://www.tarsnap.com/account.html) and <code>machine</code> with something personal to you, and note that it does not have to be the hostname of a machine - it can be any meaningful identifier, and it will show up under _Recent activity (one machine)_ on your Tarsnap account. After running this command type <code>exit</code> to exit the Bash shell. Then run something like this command:
 
-    docker cp tarsnapgenkey:/root/tarsnap.key /path/to/your/private/docker/project/
+    docker cp tarsnapgenkey:/root/tarsnap.key \
+        /path/to/your/private/docker/project/
 
 This will copy the private key you've just generated into your own Dockerfile project by changing <code>/path/to/your/private/docker/project/</code> to the path to your project. Delete the container now with:
 
@@ -64,7 +66,8 @@ To backup a path on the machine running Docker Daemon use something like this:
 
 To get a list of the backups that have been made use a command like this:
 
-    docker run -ti --rm=true --volumes-from tarsnap_cache myname/tarsnap-private /opt/list.sh
+    docker run -ti --rm=true --volumes-from tarsnap_cache myname/tarsnap-private \
+        /opt/list.sh
 
 # Restoring From a Backup
 
