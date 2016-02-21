@@ -8,6 +8,8 @@ Tags correspond in name to the version of the [Tarsnap source](https://github.co
 
 The source code for this image is on GitHub at [sappho/docker-build-tarsnap](https://github.com/sappho/docker-build-tarsnap). It is distributed under the [MIT license](https://opensource.org/licenses/MIT). Contributions are welcome - please fork and submit pull requests.
 
+[![Build Status](https://travis-ci.org/sappho/docker-build-tarsnap.svg?branch=master)](https://travis-ci.org/sappho/docker-build-tarsnap)
+
 # Creating a Private Key Image
 
 This public Tarsnap image requires a private key to securely communicate with [tarsnap.com](https://www.tarsnap.com). You should create a private Docker image based on this public Tarsnap image and keep your private key in it. This project has a sub-directory named `sample-private-key-image` you can use as a template for this. Create your own project (and store it in a private repository) then run this command to begin creating your private key:
