@@ -6,9 +6,7 @@
 
 Tags correspond in name to the version of the [Tarsnap source](https://github.com/Tarsnap/tarsnap) they're built from.
 
-Source code: [sappho/docker-build-tarsnap on GitHub](https://github.com/sappho/docker-build-tarsnap).
-
-Contributions welcome - please fork and submit pull requests.
+The source code for this image is on GitHub at [sappho/docker-build-tarsnap](https://github.com/sappho/docker-build-tarsnap). It is distributed under the [MIT license](https://opensource.org/licenses/MIT). Contributions are welcome - please fork and submit pull requests.
 
 # Creating a Private Key Image
 
