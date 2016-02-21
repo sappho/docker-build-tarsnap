@@ -2,6 +2,12 @@
 
 [Tarsnap](https://www.tarsnap.com) is a cost-effective and secure backup provider. For more information start from the [Tarsnap design detail pages](https://www.tarsnap.com/design.html) and work out if it's the service for you. If it is then go ahead and use this Docker image.
 
+# This Docker Image
+
+Source code: [sappho/docker-build-tarsnap on GitHub](https://github.com/sappho/docker-build-tarsnap).
+
+Contributions welcome - please fork and submit pull requests.
+
 # Creating a Private Key Image
 
 This public Tarsnap image requires a private key to securely communicate with [tarsnap.com](https://www.tarsnap.com). You should create a private Docker image based on this public Tarsnap image and keep your private key in it. This project has a sub-directory named <code>sample-private-key-image</code> you can use as a template for this. Create your own project (and store it in a private repository) then run this command to begin creating your private key:
