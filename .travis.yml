@@ -13,7 +13,5 @@ install:
 
 script:
   - sudo docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - sudo docker pull ubuntu:trusty
-  - sudo docker pull sappho/tarsnap
   - sudo ./build.sh
   - sudo docker logout
