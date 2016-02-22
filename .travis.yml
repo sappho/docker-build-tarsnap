@@ -10,11 +10,8 @@ services:
 install:
   - apt-cache madison docker-engine
   - sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-engine=$DOCKER_VERSION
-  - sudo docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - sudo docker pull sappho/tarsnap && sudo docker pull ubuntu:trusty
 
 script:
+  - sudo docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - sudo ./build.sh
-
-after_script:
   - sudo docker logout
