@@ -68,8 +68,8 @@ To backup a path on the machine running Docker Daemon use something like this:
 
 To get a list of the backups that have been made use a command like this:
 
-    docker run -ti --rm=true --volumes-from tarsnap_cache myname/tarsnap-private \
-        /opt/list.sh
+    docker run -ti --rm=true --volumes-from tarsnap_cache \
+        myname/tarsnap-private /opt/list.sh
 
 # Restoring From a Backup
 
