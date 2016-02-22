@@ -50,7 +50,7 @@ The `/opt/fix.sh` script will create a valid cache. You can delete the `tarsnap_
 
 To create a backup of the data in a data volume container use a command like this:
 
-    docker run -ti --rm=true \
+    docker run -ti --rm \
         --volumes-from tarsnap_cache --volumes-from other_container:ro \
         --env IMAGE_PREFIX=any-label \
         myname/tarsnap-private /opt/backup.sh /path/to/data
@@ -59,7 +59,7 @@ This will create a backup named like this: `any-label-2016-02-21-13-41-54`. The 
 
 To backup a path on the machine running Docker Daemon use something like this:
 
-    docker run -ti --rm=true \
+    docker run -ti --rm \
         --volumes-from tarsnap_cache --volume /path/to/data:/var/source-data:ro \
         --env IMAGE_PREFIX=any-label \
         myname/tarsnap-private /opt/backup.sh /var/source-data
@@ -68,19 +68,19 @@ To backup a path on the machine running Docker Daemon use something like this:
 
 To get a list of the backups that have been made use a command like this:
 
-    docker run -ti --rm=true --volumes-from tarsnap_cache \
+    docker run -ti --rm --volumes-from tarsnap_cache \
         myname/tarsnap-private /opt/list.sh
 
 # Restoring From a Backup
 
 To restore the _last_ backup you made, use a command like this:
 
-    docker run -ti --rm=true \
+    docker run -ti --rm \
         --volumes-from tarsnap_cache --volumes-from other_container \
         myname/tarsnap-private /opt/restore.sh
 
 To restore from a specific backup, use a command like this:
 
-    docker run -ti --rm=true \
+    docker run -ti --rm \
         --volumes-from tarsnap_cache --volumes-from other_container \
         myname/tarsnap-private /opt/restore.sh any-label-2016-02-21-13-41-54
