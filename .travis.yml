@@ -10,7 +10,6 @@ services:
 before_install:
   - apt-cache madison docker-engine
   - sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-engine=${DOCKER_VERSION}
-  - sudo docker login -e "${DOCKER_EMAIL}" -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
 
 script:
   - sudo ./build.sh
